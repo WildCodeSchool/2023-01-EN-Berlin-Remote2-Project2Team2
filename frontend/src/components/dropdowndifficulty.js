@@ -4,7 +4,7 @@ function DropdownDifficulty() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    fetch("https://random-data-api.com/api/coffee/random_coffee")
+    fetch("http://localhost:2500/filter")
       .then((response) => response.json())
       .then((data) => setResults(data));
   }, []);
@@ -18,10 +18,9 @@ function DropdownDifficulty() {
   return (
     <div>
       <select>
-        {/* {apiArray.map((result) => (
-          <option>{result.origin}</option>
-        ))} */}
-        {<option>{results.origin}</option>}
+        {results.map((result) => (
+          <option>{result.level}</option>
+        ))}
       </select>
     </div>
   );
