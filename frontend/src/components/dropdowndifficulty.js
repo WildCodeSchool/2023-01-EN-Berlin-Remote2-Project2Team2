@@ -18,20 +18,12 @@ function DropdownDifficulty() {
   return (
     <div>
       <div className="select-wrapper">
+      
       <select>
-        {results.map((result) => (
-          <option value="Beginner">{result.level}</option>
-        ))}
-      </select>
-      <select>
-        {results.map((result) => (
-          <option value="Intermediate">{result.level}</option>
-        ))}
-      </select>
-      <select>
-        {results.map((result) => (
-          <option value="Expert">{result.level}</option>
-        ))}
+        <option value="" disabled selected>Select your level</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Expert</option>
       </select>
     </div>
     </div>
