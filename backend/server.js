@@ -40,7 +40,7 @@ app.get("/filter", function (req, res) {
   if (mechanic) results = filterByMechanic(results, mechanic);
 
   // return set that matches all filters
-  res.send("heya");
+  res.send(results);
 });
 
 app.listen(2500);
