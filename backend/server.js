@@ -1,46 +1,18 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
-const data = require("./data/exercises");
+const data = require("./data/exercises.js");
+const port = process.env.PORT || 5000;
 
-app.use(cors());
-
-// name: "Yoke Walk",
-//     force: null,
-//     level: "intermediate",
-//     mechanic: "compound",
-//     equipment: "other",
-//     primaryMuscles:
-
-function filterByLevel(array, level) {
-  return array.filter((object) => object.level === level);
-}
-
-function filterByCategory(array, category) {
-  return array.filter((object) => object.category === category);
-}
-
-function filterByMechanic(array, mechanic) {
-  return array.filter((object) => object.mechanic === mechanic);
-}
-
-app.get("/filter", function (req, res) {
-  const { level, category, mechanic } = req.query;
-
-  // start with the full set
-  let results = data;
-
-  // filter by level if specified
-  if (level) results = filterByLevel(results, level);
-
-  // filter by category if specified
-  if (category) results = filterByCategory(results, category);
-
-  // filter by mechanic if specified
-  if (mechanic) results = filterByMechanic(results, mechanic);
-
-  // return set that matches all filters
-  res.send(results);
+app.listen(port, (err) => {
+  err
+    ? console.log("Server Error, try again")
+    : console.log(`Server Run on port ${port}`);
 });
 
-app.listen(2500);
+// ---------------------------------
+
+const api = (_, res) => {
+  res.status(200).send(data);
+};
+
+app.get("/", api);
