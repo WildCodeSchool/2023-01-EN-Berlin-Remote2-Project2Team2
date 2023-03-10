@@ -4,6 +4,7 @@ import ropes from "./assets/ropes.mp4";
 import levelsvg from "./assets/barbellcolor-03.svg";
 import equipmentsvg from "./assets/equipment-01.svg";
 import bodypartysvg from "./assets/body-01.svg";
+import DropdownLevel from "./components/dropdownlevel.js";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
               <h2>Searchbar</h2>
             </div>
             <div className="Select">
-              <h2>Select Your Level</h2>
+              {/* <h2>Select Your Level</h2> */}
+              <DropdownLevel />
               <img src={levelsvg} alt="" />
             </div>
             <div className="Select">
