@@ -4,9 +4,22 @@ import ropes from "./assets/ropes.mp4";
 import levelsvg from "./assets/barbellcolor-03.svg";
 import equipmentsvg from "./assets/equipment-01.svg";
 import bodypartysvg from "./assets/body-01.svg";
-import DropdownLevel from "./components/dropdownlevel.js";
+// import DropdownLevel from "./components/dropdownlevel.js";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    fetch("https://exercises-api-qkfb.onrender.com/")
+      .then((response) => response.json())
+      .then((data) => setResults(data));
+  }, []);
+
+  console.log(results);
+
+  // filterByLevel = ()
+
   return (
     <>
       <div className="App">
@@ -21,7 +34,15 @@ function App() {
             </div>
             <div className="Select">
               {/* <h2>Select Your Level</h2> */}
-              <DropdownLevel />
+              <select
+                className="SelectDropdown"
+                id="SelectLevel"
+                // onChange={filterByLevel}
+              >
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Expert</option>
+              </select>
               <img src={levelsvg} alt="" />
             </div>
             <div className="Select">
@@ -36,6 +57,7 @@ function App() {
         </div>
         <div className="Results">
           <h1>Results</h1>
+          <h2>Levels{results[9].level}</h2>
         </div>
       </div>
     </>
