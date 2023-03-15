@@ -17,7 +17,7 @@ function App() {
           </div>
           <div className="SearchAndSelect">
             <div className="Searchbar">
-              <h2>Searchbar</h2>
+              <h2>SearchBar</h2>
             </div>
             <div className="Select">
               {/* <h2>Select Your Level</h2> */}
